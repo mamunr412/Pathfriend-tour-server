@@ -77,6 +77,15 @@ async function run() {
 
             res.json(result)
         })
+
+        // booking package delete 
+        app.delete('/packagedelete/:id', async (req, res) => {
+            const id = req.params.id
+            const result = await getOfferCollection.deleteOne({ _id: ObjectID(id) });
+            res.json(result);
+
+        })
+
     }
     finally {
         // await client.close();
