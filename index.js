@@ -62,7 +62,7 @@ async function run() {
         app.delete('/deletebooking/:id', async (req, res) => {
             const id = req.params.id
             const result = await getOfferCollection.deleteOne({ _id: ObjectID(id) })
-            res.send(result);
+            res.json(result);
         })
 
         // update pending 
@@ -77,16 +77,6 @@ async function run() {
 
             res.json(result)
         })
-
-        // booking package delete 
-        app.delete('/deleteMyBooking/:id', async (req, res) => {
-            const id = req.params.id
-            const result = await getOfferCollection.deleteOne({ _id: ObjectID(id) });
-            res.json(result);
-
-
-        })
-
     }
     finally {
         // await client.close();
